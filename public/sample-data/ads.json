@@ -1,0 +1,52 @@
+[
+    {
+    title: "Almost new Subaru on sell",
+    published: "07.07.2013",
+    maker: "Subaru",
+    model: "Legacy",
+    year: 2010,
+    transmission: "Automatic",
+    fuelType: "Diesel",
+    description: "Some nice car"
+    },
+    {
+    title: "Great deal",
+    published: "10.07.2013",
+    maker: "Mercedes",
+    model: "E63",
+    year: 2012,
+    transmission: "Automatic",
+    fuelType: "Gasoline",
+    description: "That's a mighty car"
+    },
+    {
+        title: "Selling cheap",
+        published: "28.06.2013",
+        maker: "Audi",
+        model: "A*",
+        year: 2013,
+        transmission: "Manual",
+        fuelType: "Gasoline",
+        description: "I don't really want to sell it..."
+    },
+    {
+        title: "Almost new Subaru on sell",
+        published: "06.07.2013",
+        maker: "Toyota",
+        model: "Auris",
+        year: 2008,
+        transmission: "Manual",
+        fuelType: "Diesel",
+        description: "A car from Japan, you know. Speaks for itself."
+    },
+    {
+        title: "Almost new Subaru on sell",
+        published: "03.07.2013",
+        maker: "Alfa",
+        model: "Romeo",
+        year: 2007,
+        transmission: "Manual",
+        fuelType: "Gasoline",
+        description: "Nothing fancy"
+    }
+]
