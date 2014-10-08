@@ -25,6 +25,18 @@ module.exports = {
             }
             res.send(respone);
         })
+    },
+    getByUserId:function(req,res,next){
+        Ads.find({user: req.params.id}).populate({
+            path: 'user',
+            select: 'username _id'
+        }).exec(function(err , respone){
+            if (err) {
+                res.status(400).send("Invalid User Id");
+                return;
+            }
+            res.send(respone);
+        })
     }
 
 }

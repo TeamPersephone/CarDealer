@@ -1,7 +1,6 @@
 'use strict';
 
 appMain.controller('MakeAdController', function MakeAdController($scope, $location, AccountService, adsData) {
-    //TODO: Better check for authentication
     if (AccountService.userData.isAuth === false ) {
         $location.path("/");
     }
@@ -21,7 +20,7 @@ appMain.controller('MakeAdController', function MakeAdController($scope, $locati
         }
 
         ad.published = new Date();
-        ad.author = AccountService.userData.username;
+        ad.user = AccountService.userData.userId;
 
         adsData.postAd(ad)
             .then(function (response) {
