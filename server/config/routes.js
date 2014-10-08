@@ -12,7 +12,8 @@ module.exports = function(app) {
 
     app.post('/api/login', auth.login);
     app.post('/api/logout', auth.logout);
-    app.post('/api/Ads', controllers.ads.createAds);
+    app.post('/api/ads', controllers.ads.createAds);
+    app.get('/api/ads' , controllers.ads.getAll);
 
     app.get('/api/*', function(req, res) {
         res.status(404);

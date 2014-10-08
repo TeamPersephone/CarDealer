@@ -20,11 +20,13 @@ appMain.factory('AccountService', function ($q, httQ, localStorageService) {
                 if(response.success){
                     localStorageService.set('authorizationData', {
                         username: user.username,
-                        roles: response.user.roles
+                        roles: response.user.roles,
+                        userId: response.user._id
                     });
 
                     authenticationData.isAuth = true;
                     authenticationData.username = user.username;
+                    authenticationData.userId = response.user._id;
                     authenticationData.roles = response.user.roles;
 
                     deferred.resolve(response);
@@ -63,6 +65,7 @@ appMain.factory('AccountService', function ($q, httQ, localStorageService) {
         authenticationData.isAuth = false;
         authenticationData.username = "";
         authenticationData.roles = [];
+        authenticationData.userId = "";
     }
 
     function checkRole(role){

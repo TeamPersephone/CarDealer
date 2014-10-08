@@ -25,7 +25,6 @@ appMain.config(function ($routeProvider, appSettings) {
         templateUrl: "/partials/account/signup"
     });
 
-
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
 

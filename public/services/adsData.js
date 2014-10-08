@@ -1,7 +1,7 @@
 'use strict';
 
 appMain.factory('adsData', ['$http', '$q', function($http, $q) {
-    var baseUrl ='/api/users';
+    var baseUrl ='/api/ads';
 
     return {
         getAds: function() {
