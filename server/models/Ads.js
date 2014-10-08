@@ -2,14 +2,14 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var adsSchema = mongoose.Schema({
-    Year: String ,
-    Published: Date,
-    Make: {type: String, required: true},
-    Model:{type: String, required: true},
-    FuelType: String,
-    Transmission: String,
-    Description:String,
-    Author: { type: Schema.Types.ObjectId, ref: 'User' }
+    year: String ,
+    published: Date,
+    make: {type: String, required: true},
+    model:{type: String, required: true},
+    fuelType: String,
+    transmission: String,
+    description:String,
+    user: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
 var Ads = mongoose.model('Ads', adsSchema);
