@@ -5,6 +5,7 @@ appMain.factory('AccountService', function ($q, httQ, localStorageService) {
     var authenticationData = {
         isAuth: false,
         username: "",
+        userId: "",
         roles: []
     };
 
@@ -55,6 +56,7 @@ appMain.factory('AccountService', function ($q, httQ, localStorageService) {
         if (identityData) {
             authenticationData.isAuth = true;
             authenticationData.username = identityData.username;
+            authenticationData.userId = identityData.userId;
             authenticationData.roles = identityData.roles;
         }
     }
