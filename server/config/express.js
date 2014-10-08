@@ -5,9 +5,10 @@ var express = require('express'),
     session = require('express-session'),
     favicon = require('serve-favicon'),
     methodOverride = require('method-override'),
-    passport = require('passport');
+    passport = require('passport'),
+    busboy = require('connect-busboy');
 
-module.exports = function(app, config) {
+module.exports = function (app, config) {
     app.set('view engine', 'jade');
     app.set('views', config.rootPath + '/server/views');
 
@@ -15,6 +16,7 @@ module.exports = function(app, config) {
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(busboy({ immediate: true }));
     app.use(methodOverride('X-HTTP-Method-Override'));
 
     app.use(cookieParser('hashTagPesho'));
@@ -27,7 +29,7 @@ module.exports = function(app, config) {
     app.use(stylus.middleware(
         {
             src: config.rootPath + '/public',
-            compile: function(str, path) {
+            compile: function (str, path) {
                 return stylus(str).set('filename', path);
             }
         }

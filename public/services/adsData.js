@@ -16,7 +16,7 @@ appMain.factory('adsData', ['$http', '$q', 'httQ', function($http, $q, httQ) {
             return deferred.promise;
         },
         postAd: function(ad) {
-            return httQ.post(baseUrl, ad);
+            return httQ.post(baseUrl, ad , { 'Content-Type': 'form/multi-part' });
         }
     }
 }]);

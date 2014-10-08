@@ -1,17 +1,37 @@
 var Ads = require('mongoose').model('Ads');
 var Make = require('mongoose').model('Make');
 var User = require('mongoose').model('User');
+var util = require('util'),
+    fs = require('fs');
 
 module.exports = {
     createAds: function (req, res, next) {
-        console.log(req.body);
-        var ads = new Ads(req.body);
-        ads.save(function (err, item) {
-            if (err) {
-                res.status(404).send('Failed to create new item: ' + err);
-                return;
-            }
-            res.send(ads);
+        req.pipe(req.busboy);
+            console.log('in');
+        var ad = {};
+
+        req.busboy.on('file', function (fieldname, file, filename) {
+            fstream = fs.createWriteStream(__dirname + '/../pictures/' + filename);
+            file.pipe(fstream);
+            ad.picture = filename;
+        });
+
+        req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
+            console.log(fieldname);
+            ad[fieldname] = val;
+        });
+
+        req.busboy.on('finish', function() {
+            console.log(ad);
+            res.redirect('#/');
+            //var ads = new Ads(ad);
+            //ads.save(function (err, item) {
+            //    if (err) {
+            //        res.status(404).send('Failed to create new item: ' + err);
+            //        return;
+            //    }
+            //    res.send(ads);
+            //});
         });
     },
     getAll:function(req ,res , next){
