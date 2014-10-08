@@ -1,6 +1,6 @@
 'use strict';
 
-appMain.factory('adsData', ['$http', '$q', function($http, $q) {
+appMain.factory('adsData', ['$http', '$q', 'httQ', function($http, $q, httQ) {
     var baseUrl ='/api/ads';
 
     return {
@@ -14,6 +14,9 @@ appMain.factory('adsData', ['$http', '$q', function($http, $q) {
                 });
 
             return deferred.promise;
+        },
+        postAd: function(ad) {
+            return httQ.post(baseUrl, ad);
         }
     }
 }]);

@@ -11,6 +11,8 @@
                 li(data-ng-show='userData.isAuth')
                     a(href='#') Welcome {{userData.username}}
                 li(data-ng-show='userData.isAuth')
+                    a(href='#/create') Create Ad
+                li(data-ng-show='userData.isAuth')
                     a(href='', data-ng-click='logOut()') Logout
                 li(data-ng-show='!userData.isAuth')
                     a(href='#/login') Login

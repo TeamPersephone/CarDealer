@@ -25,6 +25,11 @@ appMain.config(function ($routeProvider, appSettings) {
         templateUrl: "/partials/account/signup"
     });
 
+    $routeProvider.when("/create", {
+        controller: "MakeAdController",
+        templateUrl: "/partials/authenticated/createAd"
+    });
+
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
 

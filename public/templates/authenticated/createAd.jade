@@ -1,0 +1,40 @@
+.row
+    .col-md-3
+    .col-lg-6
+        .well.bs-component
+            form.form-horizontal.form-Login(name='adCreationForm', role='form')
+                legend Create Ad
+                .form-group
+                    label.col-lg-3.control-label Maker
+                    .col-lg-9
+                        input.form-control(type='text', placeholder='Maker', data-ng-model='ad.make', required='required', autofocus='autofocus')
+                .form-group
+                    label.col-lg-3.control-label Model
+                    .col-lg-9
+                        input.form-control(type='text', placeholder='Model', data-ng-model='ad.model', required='required')
+                .form-group
+                    label.col-lg-3.control-label Year
+                    .col-lg-9
+                        input.form-control(type='number', placeholder='Year', data-ng-model='ad.year')
+                .form-group
+                    label.col-lg-3.control-label Fuel Type
+                    select.col-lg-9(placeholder='Fuel Type', data-ng-model='ad.fuelType')
+                        option Diesel
+                        option Gasoline
+                        option Propane
+                        option CNG
+                        option Other
+                .form-group
+                    label.col-lg-3.control-label Transmission
+                    select.col-lg-9(placeholder='Transmission', data-ng-model='ad.transmission')
+                        option Automatic
+                        option Manual
+                .form-group
+                    label.col-lg-3.control-label Description
+                    .col-lg-9
+                        textarea.form-control(placeholder='Description', data-ng-model='ad.description')
+                button.btn.btn-primary.btn-info.btn-block(type='submit', data-ng-click='makeAd(ad)') Create
+            hr
+            div(data-ng-hide='formMessage == ""', data-ng-class='(successfulRegistration) ?"alert alert-success" : "alert alert-danger"')
+                | {{formMessage}}
+        .col-md-3
