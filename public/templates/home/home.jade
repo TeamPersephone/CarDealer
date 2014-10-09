@@ -26,6 +26,8 @@
                                        strong Fuel
                                        .pull-right {{ad.fuelType}}
                             .row Posted by
-                                strong  {{ad.user.username}}
+                                strong
+                                    a(href='#/byuser/{{ad.user._id}}')
+                                        |  {{ad.user.username}}
                                 |  on
                                 strong  {{ad.published | date:'medium'}}

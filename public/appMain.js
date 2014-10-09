@@ -29,6 +29,10 @@ appMain.config(function ($routeProvider, appSettings) {
         controller: "MakeAdController",
         templateUrl: "/partials/authenticated/createAd"
     });
+    $routeProvider.when("/byuser/:id", {
+        controller: "AdsByUserController",
+        templateUrl: "/partials/ads/byuser"
+    });
 
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
