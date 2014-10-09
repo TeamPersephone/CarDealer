@@ -1,5 +1,6 @@
 var auth = require('./auth'),
-    controllers = require('../controllers');
+    controllers = require('../controllers'),
+    path = require('path');
 
 module.exports = function(app) {
     app.get('/api/users', auth.isInRole('admin'), controllers.users.getAllUsers);
@@ -15,6 +16,10 @@ module.exports = function(app) {
     app.post('/api/ads' ,auth.isAuthenticated, controllers.ads.createAds);
     app.get('/api/ads' , controllers.ads.getAll);
     app.get('/api/ads/byuser/:id' , controllers.ads.getByUserId);
+    app.get('/picture/:pictureName', function(req, res) {
+        console.log(req.params.pictureName)
+        res.sendfile(path.resolve('public/pictures/'+req.params.pictureName));
+    });
     app.get('/api/*', function(req, res) {
         res.status(404);
         res.end();

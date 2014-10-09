@@ -11,26 +11,26 @@ var createAd = function createAd(req, res) {
     var ad = {};
 
     req.busboy.on('file', function (fieldname, file, filename) {
-        fstream = fs.createWriteStream(__dirname + '/../pictures/' + filename);
+        fstream = fs.createWriteStream(__dirname + '/../../public/pictures/' + filename);
         file.pipe(fstream);
         ad.picture = filename;
     });
 
     req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
-        //console.log(fieldname);
+        console.log(fieldname);
         ad[fieldname] = val;
     });
 
     req.busboy.on('finish', function() {
         console.log(ad);
-        //res.redirect('#/');
+
         var ads = new Ads(ad);
         ads.save(function (err, item) {
             if (err) {
                 res.status(404).send('Failed to create new item: ' + err);
                 return;
             }
-            res.send(ads);
+            res.redirect('#/');
         });
     });
 }
@@ -61,5 +61,4 @@ module.exports = {
             res.send(respone);
         })
     }
-
 }

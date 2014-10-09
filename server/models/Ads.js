@@ -9,6 +9,7 @@ var adsSchema = mongoose.Schema({
     fuelType: String,
     transmission: String,
     description:String,
+    picture: String,
     user: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
