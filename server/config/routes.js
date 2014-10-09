@@ -27,4 +27,8 @@ module.exports = function (app) {
         res.status(404);
         res.end();
     });
+
+    app.get('*', function(req, res) {
+        res.render('index', {currentUser: req.user});
+    });
 };
