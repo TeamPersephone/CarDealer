@@ -118,5 +118,14 @@ module.exports = {
             }
             res.send(respone);
         })
+    }, remove: function (req, res, next) {
+        Ads.remove({_id: req.params.id}).exec(function (err, respone) {
+            if (err) {
+                res.status(404).send("Invalid Ad Id");
+                return;
+            }
+            res.send(respone);
+        })
     }
+
 }
