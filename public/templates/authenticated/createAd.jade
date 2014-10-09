@@ -7,12 +7,14 @@
                 .form-group
                     label.col-lg-3.control-label(for='make') Maker
                     .col-lg-9
-                        select(id='make' class="form-control" ng-model="selected" ng-options="make.Name in makes" )
-                        //input.form-control(type='text', placeholder='Maker', id='make', name='make', autofocus='autofocus' required='required')
+                        select(id='make' class="form-control" ng-model="selectedMake" ng-options="make.Name for make in makes" )
+                            option(value="") -- Choose Maker --
                 .form-group
                     label.col-lg-3.control-label(for='model') Model
                     .col-lg-9
-                        input.form-control(type='text', placeholder='Model', id='model', name='model' required='required')
+                        select(id='model' class="form-control" ng-model="selectedModel" ng-options="model as model for model in models" )
+                            option(value="") -- Choose Model --
+                        //input.form-control(type='text', placeholder='Model', id='model', name='model' required='required')
                 .form-group
                     label.col-lg-3.control-label(for='year') Year
                     .col-lg-9

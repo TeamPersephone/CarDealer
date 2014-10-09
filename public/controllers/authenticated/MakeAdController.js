@@ -9,8 +9,11 @@ appMain.controller('MakeAdController', function MakeAdController($scope, $locati
 
     adsData.getMakes().then(function(makes){
     $scope.makes = makes;
-        console.log(makes[0]);
-    $scope.selected = makes[0].Name;
+    //$scope.selected = "";
+    $scope.models = makes[0].Model;
+
+    $scope.selectedMake = '';
+    $scope.selectedModel = '';
 
     $scope.makeAd = function makeAdFunction(ad) {
 
