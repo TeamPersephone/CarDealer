@@ -1,26 +1,57 @@
+label(for='manufacturer') Manufacturer
+select(id='manufacturer' ng-model='searchObject.make' ng-change='manufacturerChosen(searchObject.manufacturer)')
+    option(ng-repeat='make in makes') {{make.Name}}
+label(for='model' ng-show='searchObject.manufacturer') Model
+select(id='model' ng-model='searchObject.model' ng-show='searchObject.manufacturer')
+    option(ng-repeat='model in models') {{model}}
+label(for='transmission') Transmission type
+select(id='transmission' ng-model='searchObject.transmission')
+    option Automatic
+    option Manual
+label(for='fuelType') Fuel type
+select(id='fuelType' ng-model='searchObject.fuelType')
+    option Diesel
+    option Gasoline
+    option Propane
+    option CNG
+    option Other
+label(for='year' ng-model='searchObject.year') Year
+input(type='number' id='year' ng-model='searchObject.year')
+label(for='minPrice' ng-model='searchObject.minPrice') Min price
+input(type='number' id='minPrice' ng-model='searchObject.minPrice')
+label(for='maxPrice' ng-model='searchObject.maxPrice') Max price
+input(type='number' id='maxPrice' ng-model='searchObject.maxPrice')
+.pull-right
+    button.btn.btn-success(ng-click='executeSearch(searchObject)') Search!
 .content
-    label(for='manufacturer') Manufacturer
-    select(id='manufacturer' ng-model='searchObject.manufacturer')
-        option Get makers from db
-    label(for='model') Model
-    select(id='model' ng-model='searchObject.model')
-        option Get models from db
-    label(for='transmission') Transmission type
-    select(id='transmission' ng-model='searchObject.transmission')
-        option Automatic
-        option Manual
-    label(for='fuelType') Fuel type
-    select(id='fuelType' ng-model='searchObject.fuelType')
-        option Diesel
-        option Gasoline
-        option Propane
-        option CNG
-        option Other
-    label(for='year' ng-model='searchObject.year') Year
-    input(type='number' id='year' ng-model='searchObject.year')
-    label(for='minPrice' ng-model='searchObject.minPrice') Min price
-    input(type='number' id='minPrice' ng-model='searchObject.minPrice')
-    label(for='maxPrice' ng-model='searchObject.maxPrice') Max price
-    input(type='number' id='maxPrice' ng-model='searchObject.maxPrice')
-    .pull-right
-        button.btn.btn-success(ng-click='executeSearch(searchObject)') Search!
+    .jumbotron(ng-show='noResults')
+        h1 No results!
+    .row.text-left.search-result(ng-hide='noResults')
+        .col-lg-4(ng-repeat="ad in ads")
+            .panel-primary
+                .panel-heading
+                    h3.panel-title {{ad.model}}
+                .panel-body
+                    .row
+                        img.pull-left(src="/picture/{{ad.picture}}" width='40%')
+                        ul.pull-right.car-info
+                            li
+                                strong Manufacturer
+                                .pull-right {{ad.make}}
+                            li
+                                strong Model
+                                .pull-right {{ad.model}}
+                            li
+                                strong Fuel
+                                .pull-right {{ad.fuelType}}
+                            li
+                                a(href='#/ad/{{ad._id}}') View Details
+                    .row Posted by
+                        strong
+                            a(href='#/byuser/{{ad.user._id}}')
+                                |  {{ad.user.username}}
+                        |  on
+                        strong  {{ad.published | date:'medium'}}
+        .clearfix
+    button.btn.btn-primary.pull-right(ng-click='switchPage(true)') Next
+    button.btn.btn-primary.pull-right(ng-click='switchPage()') Prev

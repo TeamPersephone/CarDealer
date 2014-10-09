@@ -26,6 +26,10 @@ appMain.factory('adsData', ['$http', '$q', 'httQ', function($http, $q, httQ , $r
         },
         getMakes: function() {
             return httQ.get('/api/makes');
+        },
+        getSearchResults: function(searchString) {
+            console.log('/api/search?' + searchString);
+            return httQ.get('/api/search?' + searchString);
         }
     }
 }]);

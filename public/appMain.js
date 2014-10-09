@@ -31,7 +31,8 @@ appMain.config(function ($routeProvider, appSettings) {
     });
     $routeProvider.when("/search", {
         controller: "SearchController",
-        templateUrl: "/partials/search/search"
+        templateUrl: "/partials/search/search",
+        reloadOnSearch: false
     });
     $routeProvider.when("/byuser/:id", {
         controller: "AdsByUserController",
