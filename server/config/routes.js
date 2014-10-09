@@ -14,6 +14,8 @@ module.exports = function(app) {
     app.post('/api/ads' ,auth.isAuthenticated, controllers.ads.createAds);
     app.get('/api/ads' , controllers.ads.getAll);
     app.get('/api/makes' , controllers.make.getAllMakes);
+    app.post('/api/makes/addmake' , controllers.make.addMake);
+    app.post('/api/makes/addmodel' , controllers.make.addModel);
     app.get('/api/ads/:id' , controllers.ads.getByAdId);
     app.get('/api/search' , controllers.ads.search);
     app.get('/api/ads/byuser/:id' , controllers.ads.getByUserId);
