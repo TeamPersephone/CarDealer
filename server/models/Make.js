@@ -19,16 +19,16 @@ module.exports.seedInitialMake = function () {
 
 
             Make.create({
-                    name: 'Audi',
+                    Name: 'Audi',
                     Model: ['A3' , 'A4' , 'S4' , 'S8' , 'R8' , 'Q7']
                 },
                 {
-                    name: 'BMW',
+                    Name: 'BMW',
                     Model: ['320' , '520' , 'X5' , 'Z4']
                 }
                 ,
                 {
-                    name: 'Mercedes',
+                    Name: 'Mercedes',
                     Model: ['A170' , 'S500' , 'CLS320' , 'C230']
                 }
             );
