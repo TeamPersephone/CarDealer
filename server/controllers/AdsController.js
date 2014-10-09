@@ -42,13 +42,17 @@ var search = function search(req, res, next) {
 
     if (!!queryParams['page']) {
         skip = queryParams['page'] * limit;
-    } else if (!!queryParams['make']) {
+    }
+    if (!!queryParams['make']) {
         searchObj['make'] = queryParams['make'];
-    } else if (!!queryParams['model']) {
+    }
+    if (!!queryParams['model']) {
         searchObj['model'] = queryParams['model'];
-    } else if (!!queryParams['fuelType']) {
+    }
+    if (!!queryParams['fuelType']) {
         searchObj['fuelType'] = queryParams['fuelType'];
-    } else if (!!queryParams['transmission']) {
+    }
+    if (!!queryParams['transmission']) {
         searchObj['transmission'] = queryParams['transmission'];
     }
 
@@ -61,9 +65,11 @@ var search = function search(req, res, next) {
     if (!!queryParams['year']) {
         console.log(queryParams['year'])
         query.where('year').gte(queryParams['year']);
-    } else if (!!queryParams['minPrice']) {
+    }
+    if (!!queryParams['minPrice']) {
         query.where('price').gte(queryParams['minPrice']);
-    } else if (!!queryParams['maxPrice']) {
+    }
+    if (!!queryParams['maxPrice']) {
         query.where('price').lte(queryParams['maxPrice']);
     }
     query.exec(function (err, respone) {
