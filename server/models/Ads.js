@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
 
 var adsSchema = mongoose.Schema({
     year: String ,
-    published: Date,
+    published: {type :Date , default : new Date() },
     make: {type: String, required: true},
     model:{type: String, required: true},
     fuelType: String,

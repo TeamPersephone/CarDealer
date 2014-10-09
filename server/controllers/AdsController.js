@@ -7,41 +7,39 @@ var util = require('util'),
 var createAd = function createAd(req, res) {
     var fstream;
     req.pipe(req.busboy);
-    //console.log(req.busboy);
     var ad = {};
 
     req.busboy.on('file', function (fieldname, file, filename) {
-        fstream = fs.createWriteStream(__dirname + '/../../public/pictures/' + filename);
+        var date = new Date().getTime();
+        fstream = fs.createWriteStream(__dirname + '/../../public/pictures/' + date + filename);
         file.pipe(fstream);
-        ad.picture = filename;
+        ad.picture = date + filename;
     });
 
-    req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
-        console.log(fieldname);
+    req.busboy.on('field', function (fieldname, val, fieldnameTruncated, valTruncated) {
         ad[fieldname] = val;
     });
 
-    req.busboy.on('finish', function() {
-        console.log(ad);
-
+    req.busboy.on('finish', function () {
         var ads = new Ads(ad);
+        ads.user = req.user._id;
         ads.save(function (err, item) {
             if (err) {
                 res.status(404).send('Failed to create new item: ' + err);
                 return;
             }
-            res.redirect('#/');
+            res.redirect('/');
         });
     });
 }
 
 module.exports = {
     createAds: createAd,
-    getAll:function(req ,res , next){
+    getAll: function (req, res, next) {
         Ads.find({}).populate({
             path: 'user',
             select: 'username _id'
-        }).exec(function(err , respone){
+        }).exec(function (err, respone) {
             if (err) {
                 res.status(400).send(err);
                 return;
@@ -49,11 +47,11 @@ module.exports = {
             res.send(respone);
         })
     },
-    getByUserId:function(req,res,next){
+    getByUserId: function (req, res, next) {
         Ads.find({user: req.params.id}).populate({
             path: 'user',
             select: 'username _id'
-        }).exec(function(err , respone){
+        }).exec(function (err, respone) {
             if (err) {
                 res.status(400).send("Invalid User Id");
                 return;
