@@ -16,7 +16,7 @@ module.exports = function (app, config) {
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(busboy({ immediate: true }));
+    app.use(busboy({ immediate: false }));
     app.use(methodOverride('X-HTTP-Method-Override'));
 
     app.use(cookieParser('hashTagPesho'));
