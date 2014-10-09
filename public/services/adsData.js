@@ -28,8 +28,11 @@ appMain.factory('adsData', ['$http', '$q', 'httQ', function($http, $q, httQ , $r
             return httQ.get('/api/makes');
         },
         getSearchResults: function(searchString) {
-            console.log('/api/search?' + searchString);
             return httQ.get('/api/search?' + searchString);
+        },
+        deleteAd: function(id) {
+            console.log('/api/remove/' + id );
+            return httQ.put('/api/remove/' + id );
         }
     }
 }]);
