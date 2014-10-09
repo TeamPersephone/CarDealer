@@ -18,7 +18,7 @@ module.exports = function (app) {
     app.post('/api/makes/addmodel', auth.isInRole('admin'), controllers.make.addModel);
     app.get('/api/ads/:id', controllers.ads.getByAdId);
     app.get('/api/search', controllers.ads.search);
-    app.get('/api/remove/:id',auth.isInRole('admin'), controllers.ads.remove);
+    app.post('/api/remove/:id',auth.isInRole('admin'), controllers.ads.remove);
     app.get('/api/ads/byuser/:id', controllers.ads.getByUserId);
     app.get('/picture/:pictureName', function (req, res) {
         res.sendFile(path.resolve('public/pictures/' + req.params.pictureName));
