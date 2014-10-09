@@ -7,6 +7,9 @@ appMain.controller('MakeAdController', function MakeAdController($scope, $locati
     $scope.successfulRegistration = false;
     $scope.formMessage = "";
 
+    adsData.getMakes().then(function(makes){
+    $scope.makes = makes;
+
     $scope.makeAd = function makeAdFunction(ad) {
 
         if (ad.make === ""){
@@ -30,5 +33,5 @@ appMain.controller('MakeAdController', function MakeAdController($scope, $locati
             }, function (error) {
                 $scope.formMessage = error.message;
             });
-    };
+    }});
 });

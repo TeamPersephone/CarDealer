@@ -1,13 +1,14 @@
 .row
     .col-md-3
     .col-lg-6
-        .well.bs-component
+        .well.bs-component(ng-controller="MakeAdController")
             form.form-horizontal.form-Login(name='adCreationForm', role='form' , method='post', action='/api/ads', enctype='multipart/form-data')
                 legend Create Ad
                 .form-group
                     label.col-lg-3.control-label(for='make') Maker
                     .col-lg-9
-                        input.form-control(type='text', placeholder='Maker', id='make', name='make', autofocus='autofocus' required='required')
+                        select(id='make' ng-options="make.name for make in makes")
+                        //input.form-control(type='text', placeholder='Maker', id='make', name='make', autofocus='autofocus' required='required')
                 .form-group
                     label.col-lg-3.control-label(for='model') Model
                     .col-lg-9

@@ -23,6 +23,9 @@ appMain.factory('adsData', ['$http', '$q', 'httQ', function($http, $q, httQ , $r
         },
         byId:function(adId){
             return httQ.get(baseUrl+'/'+adId);
+        },
+        getMakes: function() {
+            return httQ.get('/api/makes');
         }
     }
 }]);
