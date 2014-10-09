@@ -65,8 +65,8 @@ appMain.controller('SearchController', function SearchController($scope, adsData
     var manufacturerChosen = function (manufacturerName) {
         for (var index in $scope.makes) {
             var make = $scope.makes[index];
-            if (make.Name === manufacturerName) {
-                $scope.models = make.Model;
+            if (make.name === manufacturerName) {
+                $scope.models = make.model;
             }
         }
     };

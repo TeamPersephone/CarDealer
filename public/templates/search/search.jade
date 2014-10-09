@@ -1,8 +1,8 @@
 label(for='manufacturer') Manufacturer
-select(id='manufacturer' ng-model='searchObject.make' ng-change='manufacturerChosen(searchObject.manufacturer)')
-    option(ng-repeat='make in makes') {{make.Name}}
-label(for='model' ng-show='searchObject.manufacturer') Model
-select(id='model' ng-model='searchObject.model' ng-show='searchObject.manufacturer')
+select(id='manufacturer' ng-model='searchObject.make' ng-change='manufacturerChosen(searchObject.make)')
+    option(ng-repeat='make in makes') {{make.name}}
+label(for='model' ng-show='searchObject.make') Model
+select(id='model' ng-model='searchObject.model' ng-show='searchObject.make')
     option(ng-repeat='model in models') {{model}}
 label(for='transmission') Transmission type
 select(id='transmission' ng-model='searchObject.transmission')
