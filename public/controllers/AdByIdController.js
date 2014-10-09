@@ -6,7 +6,9 @@ appMain.controller('AdByIdController', function HomeController($scope, adsData ,
             return this;
         }
 
-        adsData.deleteAd($routeParams.id);
+        adsData.deleteAd($routeParams.id).then(function() {
+            $location.path('/');
+        });
     };
 
     adsData.byId($routeParams.id).then(function(data){
