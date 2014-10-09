@@ -3,38 +3,47 @@
     .col-lg-6
         .well.bs-component
             form.form-horizontal.form-Login(name='adCreationForm', role='form' , method='post', action='/api/ads', enctype='multipart/form-data')
-                input(type='text', id='make', name='make')
-                input(type='submit', value='Add Customer')
                 legend Create Ad
                 .form-group
-                    label.col-lg-3.control-label Maker
+                    label.col-lg-3.control-label(for='make') Maker
                     .col-lg-9
-                        input.form-control(type='text', placeholder='Maker', id='make', name='make', autofocus='autofocus')
+                        input.form-control(type='text', placeholder='Maker', id='make', name='make', autofocus='autofocus' required='required')
                 .form-group
-                    label.col-lg-3.control-label Model
+                    label.col-lg-3.control-label(for='model') Model
                     .col-lg-9
-                        input.form-control(type='text', placeholder='Model', id='model', name='model')
+                        input.form-control(type='text', placeholder='Model', id='model', name='model' required='required')
                 .form-group
-                    label.col-lg-3.control-label Year
+                    label.col-lg-3.control-label(for='year') Year
                     .col-lg-9
                         input.form-control(type='number', placeholder='Year', id='year' , name='year')
                 .form-group
-                    label.col-lg-3.control-label Fuel Type
-                    select.col-lg-9(placeholder='Fuel Type', if='fuelType' , name='fuelType')
+                    label.col-lg-3.control-label(for='fuelType') Fuel Type
+                    select.col-lg-9(placeholder='Fuel Type', id='fuelType' , name='fuelType')
                         option Diesel
                         option Gasoline
                         option Propane
                         option CNG
                         option Other
                 .form-group
-                    label.col-lg-3.control-label Transmission
+                    label.col-lg-3.control-label(for='transmission') Transmission
                     select.col-lg-9(placeholder='Transmission', id='transmission' , name='transmission')
                         option Automatic
                         option Manual
                 .form-group
-                    label.col-lg-3.control-label Description
+                    label.col-lg-3.control-label(for='description') Description
                     .col-lg-9
                         textarea.form-control(placeholder='Description', id='description',name='description')
+                .form-group
+                    label.col-lg-3.control-label(for='picture') Picture
+                    .col-lg-9
+                        .fileinput.fileinput-new(data-provides="fileinput")
+                            .fileinput-preview.thumbnail(data-trigger="fileinput" style="width: 200px; height: 150px;")
+                            div
+                                span.btn.btn-primary.btn-file
+                                    span.fileinput-new Select image
+                                    span.fileinput-exists Change
+                                    input(type='file', id='picture', name='picture')
+                                a.btn.btn-primary.fileinput-exists(data-dismiss="fileinput") Remove
                 input.btn.btn-primary.btn-info.btn-block(type='submit', value='Create')
             hr
             div(data-ng-hide='formMessage == ""', data-ng-class='(successfulRegistration) ?"alert alert-success" : "alert alert-danger"')
