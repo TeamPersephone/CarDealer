@@ -8,7 +8,7 @@
                     label.col-lg-3.control-label(for='make') Maker
                     .col-lg-9
                         select(id='make' class="form-control" ng-model="selectedMake" ng-change="change()")
-                            option(value="{{$index}}" ng-repeat="make in makes") {{ make.name }}
+                            option(value="{{make.name}}" ng-repeat="make in makes") {{ make.name }}
                 .form-group
                     label.col-lg-3.control-label(for='model') Model
                     .col-lg-9

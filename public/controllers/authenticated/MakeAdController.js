@@ -7,7 +7,12 @@ appMain.controller('MakeAdController', function MakeAdController($scope, $locati
     $scope.successfulRegistration = false;
     $scope.formMessage = "";
     $scope.change = function () {
-        $scope.models =  $scope.makes[$scope.selectedMake].model;
+        for (var i = 0 , len = $scope.makes.length; i < len; i++) {
+            if($scope.makes[i].name == $scope.selectedMake){
+                $scope.models = $scope.makes[i].model;
+                break;
+            }
+        }
     }
     adsData.getMakes().then(function (makes) {
         $scope.makes = makes;
