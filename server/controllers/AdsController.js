@@ -33,13 +33,55 @@ var createAd = function createAd(req, res) {
     });
 }
 
+var search = function search(req, res, next) {
+    var skip = 0,
+        limit = 10;
+
+    var searchObj = {};
+    var queryParams = req.query;
+
+    if (!!queryParams['page']) {
+        skip = queryParams['page'] * limit;
+    } else if (!!queryParams['make']) {
+        searchObj['make'] = queryParams['make'];
+    } else if (!!queryParams['model']) {
+        searchObj['model'] = queryParams['model'];
+    } else if (!!queryParams['fuelType']) {
+        searchObj['fuelType'] = queryParams['fuelType'];
+    } else if (!!queryParams['transmission']) {
+        searchObj['transmission'] = queryParams['transmission'];
+    }
+
+    console.log(searchObj);
+    console.log(skip);
+    var query = Ads.find(searchObj).sort({published: 'descending'}).populate({
+        path: 'user',
+        select: 'username _id'
+    }).skip(skip).limit(limit);
+    if (!!queryParams['year']) {
+        console.log(queryParams['year'])
+        query.where('year').gte(queryParams['year']);
+    } else if (!!queryParams['minPrice']) {
+        query.where('price').gte(queryParams['minPrice']);
+    } else if (!!queryParams['maxPrice']) {
+        query.where('price').lte(queryParams['maxPrice']);
+    }
+    query.exec(function (err, respone) {
+        if (err) {
+            res.status(400).send(err);
+            return;
+        }
+        res.send(respone);
+    })
+};
 module.exports = {
     createAds: createAd,
+    search: search,
     getAll: function (req, res, next) {
-        Ads.find({}).populate({
+        Ads.find({}).sort({published: 'descending'}).populate({
             path: 'user',
             select: 'username _id'
-        }).exec(function (err, respone) {
+        }).limit(10).exec(function (err, respone) {
             if (err) {
                 res.status(400).send(err);
                 return;
@@ -53,14 +95,14 @@ module.exports = {
             select: 'username _id'
         }).exec(function (err, respone) {
             if (err) {
-                res.status(404).send("Invalid User Id");
+                res.status(400).send("Invalid User Id");
                 return;
             }
             res.send(respone);
         })
     },
-    getByAdId:function(req , res , next){
-        Ads.findOne({_id : req.params.id}).populate({
+    getByAdId: function (req, res, next) {
+        Ads.findOne({_id: req.params.id}).populate({
             path: 'user',
             select: 'username _id'
         }).exec(function (err, respone) {

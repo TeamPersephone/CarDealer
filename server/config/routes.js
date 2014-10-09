@@ -3,9 +3,7 @@ var auth = require('./auth'),
     path = require('path');
 
 module.exports = function(app) {
-    app.get('/api/users', auth.isInRole('admin'), controllers.users.getAllUsers);
     app.post('/api/users', controllers.users.createUser);
-    app.put('/api/users', auth.isAuthenticated, controllers.users.updateUser);
 
     app.get('/partials/:partialArea/:partialName', function(req, res) {
         res.render('../../public/templates/' + req.params.partialArea + '/' + req.params.partialName)
@@ -17,9 +15,10 @@ module.exports = function(app) {
     app.get('/api/ads' , controllers.ads.getAll);
     app.get('/api/makes' , controllers.make.getAllMakes);
     app.get('/api/ads/:id' , controllers.ads.getByAdId);
+    app.get('/api/search' , controllers.ads.search);
     app.get('/api/ads/byuser/:id' , controllers.ads.getByUserId);
     app.get('/picture/:pictureName', function(req, res) {
-        res.sendfile(path.resolve('public/pictures/'+req.params.pictureName));
+        res.sendFile(path.resolve('public/pictures/'+req.params.pictureName));
     });
     app.get('/api/*', function(req, res) {
         res.status(404);
