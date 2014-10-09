@@ -1,0 +1,26 @@
+.content
+    label(for='manufacturer') Manufacturer
+    select(id='manufacturer' ng-model='searchObject.manufacturer')
+        option Get makers from db
+    label(for='model') Model
+    select(id='model' ng-model='searchObject.model')
+        option Get models from db
+    label(for='transmission') Transmission type
+    select(id='transmission' ng-model='searchObject.transmission')
+        option Automatic
+        option Manual
+    label(for='fuelType') Fuel type
+    select(id='fuelType' ng-model='searchObject.fuelType')
+        option Diesel
+        option Gasoline
+        option Propane
+        option CNG
+        option Other
+    label(for='year' ng-model='searchObject.year') Year
+    input(type='number' id='year' ng-model='searchObject.year')
+    label(for='minPrice' ng-model='searchObject.minPrice') Min price
+    input(type='number' id='minPrice' ng-model='searchObject.minPrice')
+    label(for='maxPrice' ng-model='searchObject.maxPrice') Max price
+    input(type='number' id='maxPrice' ng-model='searchObject.maxPrice')
+    .pull-right
+        button.btn.btn-success(ng-click='executeSearch(searchObject)') Search!
