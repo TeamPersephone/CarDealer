@@ -15,6 +15,7 @@ module.exports = function(app) {
     app.post('/api/logout', auth.logout);
     app.post('/api/ads' ,auth.isAuthenticated, controllers.ads.createAds);
     app.get('/api/ads' , controllers.ads.getAll);
+    app.get('/api/ads/:id' , controllers.ads.getByAdId);
     app.get('/api/ads/byuser/:id' , controllers.ads.getByUserId);
     app.get('/picture/:pictureName', function(req, res) {
         console.log(req.params.pictureName)

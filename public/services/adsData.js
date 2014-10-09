@@ -20,6 +20,9 @@ appMain.factory('adsData', ['$http', '$q', 'httQ', function($http, $q, httQ , $r
         },
         byUser:function(userId){
             return httQ.get(baseUrl+'/byuser/'+userId);
+        },
+        byId:function(adId){
+            return httQ.get(baseUrl+'/'+adId);
         }
     }
 }]);

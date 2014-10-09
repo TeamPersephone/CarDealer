@@ -33,6 +33,10 @@ appMain.config(function ($routeProvider, appSettings) {
         controller: "AdsByUserController",
         templateUrl: "/partials/ads/byuser"
     });
+    $routeProvider.when("/ad/:id", {
+        controller: "AdByIdController",
+        templateUrl: "/partials/ads/byadid"
+    });
 
     $routeProvider.otherwise({ redirectTo: "/home" });
 });

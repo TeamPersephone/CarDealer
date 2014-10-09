@@ -53,7 +53,19 @@ module.exports = {
             select: 'username _id'
         }).exec(function (err, respone) {
             if (err) {
-                res.status(400).send("Invalid User Id");
+                res.status(404).send("Invalid User Id");
+                return;
+            }
+            res.send(respone);
+        })
+    },
+    getByAdId:function(req , res , next){
+        Ads.findOne({_id : req.params.id}).populate({
+            path: 'user',
+            select: 'username _id'
+        }).exec(function (err, respone) {
+            if (err) {
+                res.status(404).send("Invalid Ad Id");
                 return;
             }
             res.send(respone);
