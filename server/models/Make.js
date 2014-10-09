@@ -2,8 +2,8 @@ var mongoose = require('mongoose') ,
     Schema = mongoose.Schema;
 
 var makeSchema = mongoose.Schema({
-    Name: String,
-    Model: [String]
+    name: String,
+    model: [String]
 });
 
 var Make = mongoose.model('Make', makeSchema);
@@ -19,17 +19,17 @@ module.exports.seedInitialMake = function () {
 
 
             Make.create({
-                    Name: 'Audi',
-                    Model: ['A3' , 'A4' , 'S4' , 'S8' , 'R8' , 'Q7']
+                    name: 'Audi',
+                    model: ['A3' , 'A4' , 'S4' , 'S8' , 'R8' , 'Q7']
                 },
                 {
-                    Name: 'BMW',
-                    Model: ['320' , '520' , 'X5' , 'Z4']
+                    name: 'BMW',
+                    model: ['320' , '520' , 'X5' , 'Z4']
                 }
                 ,
                 {
-                    Name: 'Mercedes',
-                    Model: ['A170' , 'S500' , 'CLS320' , 'C230']
+                    name: 'Mercedes',
+                    model: ['A170' , 'S500' , 'CLS320' , 'C230']
                 }
             );
 
