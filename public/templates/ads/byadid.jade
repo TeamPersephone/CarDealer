@@ -29,6 +29,8 @@
         .col-lg-6
             strong {{ad.transmission}}
     .row.ad-footer
+        .row(ng-show="checkRole('admin')")
+            button.btn.btn-danger.admin-delete-button(ng-click="deleteAd()") Delete
         |An offer by
         a(href='#/byuser/{{ad.user._id}}')  {{ad.user.username}}
         |  posted on {{ad.published | date:'medium'}}

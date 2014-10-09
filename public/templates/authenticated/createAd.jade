@@ -7,12 +7,12 @@
                 .form-group
                     label.col-lg-3.control-label(for='make') Maker
                     .col-lg-9
-                        select(id='make' class="form-control" ng-model="selectedMake" ng-change="change()")
+                        select(id='make' class="form-control" ng-model="selectedMake" ng-change="change()" name='make')
                             option(value="{{make.name}}" ng-repeat="make in makes") {{ make.name }}
                 .form-group
                     label.col-lg-3.control-label(for='model') Model
                     .col-lg-9
-                        select(id='model' class="form-control" ng-model="selectedModel"  )
+                        select(id='model' class="form-control" ng-model="selectedModel"  name='model')
                             option(value="model" ng-repeat="model in models") {{model}}
                         //input.form-control(type='text', placeholder='Model', id='model', name='model' required='required')
                 .form-group
