@@ -1,0 +1,25 @@
+.container
+    .row
+        h1 Add Model
+        .form-group
+            label.col-md-2.control-label(for='make') Maker
+            .col-md-10
+                select(id='make' class="form-control" ng-model="newModel.name" ng-change="change()")
+                    option(value="{{make.name}}" ng-repeat="make in makes") {{ make.name }}
+        .form-group
+            label.col-md-2.control-label(for='model' ) Model
+            .col-md-10
+                input.form-control(type='text', placeholder='New Model',ng-model="newModel.model", id='model' , name='model')
+        button.btn.btn-primary.btn-info.btn-block(ng-click='addModel(newModel)') Add Model
+    hr
+    .row
+        h1 Create Make
+        .form-group
+            label.col-md-2.control-label(for='model') Maker
+            .col-md-10
+                input.form-control(type='text', placeholder='New Model', ng-model="newMake.name", id='model' , name='model')
+        .form-group
+            label.col-md-2.control-label(for='model' ) Model
+            .col-md-10
+                input.form-control(type='text', placeholder='New Model',ng-model="newMake.model", id='model' , name='model')
+        button.btn.btn-primary.btn-info.btn-block(ng-click='createMake(newMake)') Create Make

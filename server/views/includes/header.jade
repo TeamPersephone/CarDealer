@@ -20,3 +20,5 @@
                     a(href='#/login') Login
                 li(data-ng-show='!userData.isAuth')
                     a(href='#/signup') Sign Up
+                li(data-ng-show='checkRole("admin")')
+                    a(href='#/admin') Admin Panel

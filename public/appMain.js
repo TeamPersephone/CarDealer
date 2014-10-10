@@ -42,6 +42,10 @@ appMain.config(function ($routeProvider, appSettings) {
         controller: "AdByIdController",
         templateUrl: "/partials/ads/byadid"
     });
+    $routeProvider.when("/admin", {
+        controller: "AdminController",
+        templateUrl: "/partials/admin/adminpanel"
+    });
 
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
