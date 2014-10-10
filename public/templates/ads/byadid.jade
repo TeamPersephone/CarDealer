@@ -2,41 +2,41 @@
     h2
         strong {{ad.make}}
                |{{ad.model}}
-.col-lg-6
+.col-md-6
     .row
-        .col-lg-6
+        .col-md-6
             |Manufacturer:
-        .col-lg-6
+        .col-md-6
             strong {{ad.make}}
     .row
-        .col-lg-6
+        .col-md-6
             |Model:
-        .col-lg-6
+        .col-md-6
             strong {{ad.model}}
     .row
-        .col-lg-6
+        .col-md-6
             |Year:
-        .col-lg-6
+        .col-md-6
             strong {{ad.year}}
     .row
-        .col-lg-6
+        .col-md-6
             |Price:
-        .col-lg-6
+        .col-md-6
             strong {{ad.price}}
     .row
-        .col-lg-6
+        .col-md-6
             |Fuel type:
-        .col-lg-6
+        .col-md-6
             strong {{ad.fuelType}}
     .row
-        .col-lg-6
+        .col-md-6
             |Transmission:
-        .col-lg-6
+        .col-md-6
             strong {{ad.transmission}}
     .row
-        .col-lg-6
+        .col-md-6
             |Phone Number:
-        .col-lg-6
+        .col-md-6
             strong {{ad.phone}}
     .row.ad-footer
         .row(ng-show="checkRole('admin')")
@@ -44,6 +44,6 @@
         |An offer by
         a(href='#/byuser/{{ad.user._id}}')  {{ad.user.username}}
         |  posted on {{ad.published | date:'medium'}}
-.col-lg-6.pull-right
+.col-md-6.pull-right
     img(src="pictures/{{ad.picture}}" width="80%")
 

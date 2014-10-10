@@ -1,52 +1,52 @@
 .row
     .col-md-3
-    .col-lg-6
+    .col-md-6
         .well.bs-component(ng-controller="MakeAdController")
             form.form-horizontal.form-Login(name='adCreationForm', role='form' , method='post', action='/api/ads', enctype='multipart/form-data')
                 legend Create Ad
                 .form-group
-                    label.col-lg-3.control-label(for='make') Maker
-                    .col-lg-9
+                    label.col-md-3.control-label(for='make') Maker
+                    .col-md-9
                         select(id='make' class="form-control" ng-model="selectedMake" ng-change="change()" name='make')
                             option(value="{{make.name}}" ng-repeat="make in makes") {{ make.name }}
                 .form-group
-                    label.col-lg-3.control-label(for='model') Model
-                    .col-lg-9
+                    label.col-md-3.control-label(for='model') Model
+                    .col-md-9
                         select(id='model' class="form-control" ng-model="selectedModel"  name='model')
                             option(value="model" ng-repeat="model in models") {{model}}
                         //input.form-control(type='text', placeholder='Model', id='model', name='model' required='required')
                 .form-group
-                    label.col-lg-3.control-label(for='year') Year
-                    .col-lg-9
+                    label.col-md-3.control-label(for='year') Year
+                    .col-md-9
                         input.form-control(type='number', placeholder='Year', id='year' , name='year')
                 .form-group
-                    label.col-lg-3.control-label(for='price') Price
-                    .col-lg-9
+                    label.col-md-3.control-label(for='price') Price
+                    .col-md-9
                         input.form-control(type='number', placeholder='Price', id='price' , name='price')
                 .form-group
-                    label.col-lg-3.control-label(for='phone') Phone Number
-                    .col-lg-9
+                    label.col-md-3.control-label(for='phone') Phone Number
+                    .col-md-9
                         input.form-control(type='text', placeholder='Phone Number', id='phone' , name='phone')
                 .form-group
-                    label.col-lg-3.control-label(for='fuelType') Fuel Type
-                    select.col-lg-9(placeholder='Fuel Type', id='fuelType' , name='fuelType')
+                    label.col-md-3.control-label(for='fuelType') Fuel Type
+                    select.col-md-9(placeholder='Fuel Type', id='fuelType' , name='fuelType')
                         option Diesel
                         option Gasoline
                         option Propane
                         option CNG
                         option Other
                 .form-group
-                    label.col-lg-3.control-label(for='transmission') Transmission
-                    select.col-lg-9(placeholder='Transmission', id='transmission' , name='transmission')
+                    label.col-md-3.control-label(for='transmission') Transmission
+                    select.col-md-9(placeholder='Transmission', id='transmission' , name='transmission')
                         option Automatic
                         option Manual
                 .form-group
-                    label.col-lg-3.control-label(for='description') Description
-                    .col-lg-9
+                    label.col-md-3.control-label(for='description') Description
+                    .col-md-9
                         textarea.form-control(placeholder='Description', id='description',name='description')
                 .form-group
-                    label.col-lg-3.control-label(for='picture') Picture
-                    .col-lg-9
+                    label.col-md-3.control-label(for='picture') Picture
+                    .col-md-9
                         .fileinput.fileinput-new(data-provides="fileinput")
                             .fileinput-preview.thumbnail(data-trigger="fileinput" style="width: 200px; height: 150px;")
                             div

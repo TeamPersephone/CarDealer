@@ -27,7 +27,7 @@ input(type='number' id='maxPrice' ng-model='searchObject.maxPrice')
     .jumbotron(ng-show='noResults')
         h1 No results!
     .row.text-left.search-result(ng-hide='noResults')
-        .col-lg-4(ng-repeat="ad in ads")
+        .col-md-4(ng-repeat="ad in ads")
             .panel-primary
                 .panel-heading
                     h3.panel-title {{ad.model}}
