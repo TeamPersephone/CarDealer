@@ -11,6 +11,7 @@ var adsSchema = mongoose.Schema({
     transmission: String,
     description: String,
     picture: String,
+    phone: String,
     user: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 

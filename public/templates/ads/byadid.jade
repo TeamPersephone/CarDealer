@@ -20,6 +20,11 @@
             strong {{ad.year}}
     .row
         .col-lg-6
+            |Price:
+        .col-lg-6
+            strong {{ad.price}}
+    .row
+        .col-lg-6
             |Fuel type:
         .col-lg-6
             strong {{ad.fuelType}}
@@ -28,6 +33,11 @@
             |Transmission:
         .col-lg-6
             strong {{ad.transmission}}
+    .row
+        .col-lg-6
+            |Phone Number:
+        .col-lg-6
+            strong {{ad.phone}}
     .row.ad-footer
         .row(ng-show="checkRole('admin')")
             button.btn.btn-danger.admin-delete-button(ng-click="deleteAd()") Delete

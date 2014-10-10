@@ -124,7 +124,7 @@ module.exports = {
                 res.status(404).send("Invalid Ad Id");
                 return;
             }
-            res.send(respone);
+            res.end();
         })
     }
 
