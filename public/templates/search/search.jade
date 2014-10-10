@@ -33,7 +33,7 @@ input(type='number' id='maxPrice' ng-model='searchObject.maxPrice')
                     h3.panel-title {{ad.model}}
                 .panel-body
                     .row
-                        img.pull-left(src="/picture/{{ad.picture}}" width='40%')
+                        img.pull-left(src="/picture/{{ad.picture}}" width='40%' height='150px')
                         ul.pull-right.car-info
                             li
                                 strong Manufacturer
@@ -44,6 +44,9 @@ input(type='number' id='maxPrice' ng-model='searchObject.maxPrice')
                             li
                                 strong Fuel
                                 .pull-right {{ad.fuelType}}
+                            li
+                                strong Price
+                                .pull-right {{ad.price}}
                             li
                                 a(href='#/ad/{{ad._id}}') View Details
                     .row Posted by

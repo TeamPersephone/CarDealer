@@ -22,6 +22,7 @@ var createAd = function createAd(req, res) {
 
     req.busboy.on('finish', function () {
         var ads = new Ads(ad);
+        ads.published = new Date();
         ads.user = req.user._id;
         ads.save(function (err, item) {
             if (err) {
